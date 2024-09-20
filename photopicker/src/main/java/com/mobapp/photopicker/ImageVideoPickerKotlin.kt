@@ -1,4 +1,4 @@
-package com.mobapp.photopickerdemo
+package com.mobapp.photopicker
 
 import android.net.Uri
 import android.util.Log
@@ -82,7 +82,7 @@ class ImageVideoPickerKotlin private constructor(
         private fun onFileSelected(uris: List<Uri>) {
             val selectedFiles= arrayListOf<SelectedFile>()
             uris.forEach {
-                val file=FileUtils.getFileFromUri(activity,it)
+                val file= FileUtils.getFileFromUri(activity, it)
                 selectedFiles.add(SelectedFile(it,file))
             }
             listener?.onFileSelected(selectedFiles)

@@ -1,5 +1,5 @@
 
-package com.mobapp.photopickerdemo;
+package com.mobapp.photopicker;
 
 import android.annotation.SuppressLint;
 import android.content.ContentUris;

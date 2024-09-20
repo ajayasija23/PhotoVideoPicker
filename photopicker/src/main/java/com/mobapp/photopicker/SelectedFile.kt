@@ -1,4 +1,4 @@
-package com.mobapp.photopickerdemo
+package com.mobapp.photopicker
 
 import android.net.Uri
 import java.io.File
