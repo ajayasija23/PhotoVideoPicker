@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("maven-publish")
 }
 
 android {
@@ -32,6 +33,20 @@ android {
     }
 }
 
+publishing {
+    publications {
+        register<MavenPublication>("release") {
+            groupId = "com.mobapp.photopicker"
+            artifactId = "photopicker"
+            version = "1.0.2"
+
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
+
 dependencies {
 
     implementation(libs.androidx.core.ktx)
@@ -41,3 +56,4 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 }
+
