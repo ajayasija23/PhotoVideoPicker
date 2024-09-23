@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             .mediaType(ActivityResultContracts.PickVisualMedia.ImageAndVideo)
             .allowMultiple(true)
             .maxItems(5)
-            .setListener(object : ImageVideoPicker.Builder.FileSelectionListener {
+            .setListener(object : ImageVideoPicker.FileSelectionListener {
                 override fun onFileSelected(selectedFiles: List<com.mobapp.photopicker.SelectedFile>) {
                     Log.d("selected_files",selectedFiles.toString())
                 }
@@ -38,6 +38,10 @@ class MainActivity : AppCompatActivity() {
 
         binding.btnStartMultiple.setOnClickListener {
             imagePicker.startMultiple()
+        }
+
+        binding.btnStartCamera.setOnClickListener {
+            imagePicker.startCamera()
         }
     }
 }
