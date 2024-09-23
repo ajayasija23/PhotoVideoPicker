@@ -36,9 +36,9 @@ android {
 publishing {
     publications {
         register<MavenPublication>("release") {
-            groupId = "com.mobapp.photopicker"
+            groupId = "com.github.ajayasija23"
             artifactId = "photopicker"
-            version = "1.0.2"
+            version = "1.0.3"
 
             afterEvaluate {
                 from(components["release"])
