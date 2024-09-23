@@ -10,6 +10,7 @@ material = "1.12.0"
 activity = "1.9.2"
 constraintlayout = "2.1.4"
 photovideopicker = "v1.0.0"
+photovideopickerVersion = "1.0.3"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -21,6 +22,7 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 photovideopicker = { module = "com.github.ajayasija23:PhotoVideoPicker", version.ref = "photovideopicker" }
+photovideopicker-v103 = { module = "com.github.ajayasija23:PhotoVideoPicker", version.ref = "photovideopickerVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

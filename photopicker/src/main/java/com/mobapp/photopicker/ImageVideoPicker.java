@@ -97,7 +97,8 @@ public class ImageVideoPicker {
     private Uri createTempFileUri() {
         try {
             File outputDir = activity.getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-            file = new File(outputDir, "tempProfile.jpeg");
+            String name= System.currentTimeMillis()/1000+".jpeg";
+            file = new File(outputDir, name);
 
             // Check if the file already exists, if so delete it
             if (file.exists()) {
@@ -105,7 +106,7 @@ public class ImageVideoPicker {
             }
 
             // Create a new temporary file
-            file = File.createTempFile("tempProfile", ".jpeg", outputDir);
+            file = File.createTempFile("temp_", ".jpeg", outputDir);
 
             // Get the URI using FileProvider
             Uri fileUri = FileProvider.getUriForFile(
@@ -116,7 +117,8 @@ public class ImageVideoPicker {
 
             return fileUri;
 
-        } catch (IOException e) {
+        }
+        catch (IOException e) {
             e.printStackTrace();
             return null;
         }
