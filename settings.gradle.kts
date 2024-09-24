@@ -21,5 +21,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "PhotoPickerDemo"
-include(":app")
+//include(":app")
 include(":photopicker")
