@@ -132,7 +132,7 @@ public class ImageVideoPicker {
                 if (isCamera){
                     selectedFiles.add(new SelectedFile(uri, file));
                 }else {
-                    File file = FileUtils.getFileFromUri(activity, uri);
+                    File file = FileUtils.getFile(activity, uri);
                     selectedFiles.add(new SelectedFile(uri, file));
                 }
 

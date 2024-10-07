@@ -16,11 +16,49 @@ import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 public class FileUtils {
 
 
+    public static File getFile(Context context, Uri uri) {
+        // Open InputStream from the Uri
+        try {
+            InputStream inputStream = context.getContentResolver().openInputStream(uri);
+
+            // Create a temporary file in the cache directory
+
+            String name= System.currentTimeMillis()/1000+".jpeg";
+            File tempFile = new File(context.getCacheDir(), name);
+            if (tempFile.exists()) {
+                tempFile.delete();
+            }
+            FileOutputStream outputStream = null;
+            try {
+                outputStream = new FileOutputStream(tempFile);
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+
+                // Read data from the InputStream and write it to the temp file
+                while ((bytesRead = inputStream.read(buffer)) != -1) {
+                    outputStream.write(buffer, 0, bytesRead);
+                }
+            } finally {
+                // Close the streams to avoid memory leaks
+                if (inputStream != null) {
+                    inputStream.close();
+                }
+                if (outputStream != null) {
+                    outputStream.close();
+                }
+            }
+
+            return tempFile;
+        } catch (IOException e) {
+            return null;
+        }
+    }
     @SuppressLint("Range")
     public static File getFileFromUri(final Context context, final Uri uri) throws Exception {
 
